@@ -1,7 +1,7 @@
 import pykd
 from os.path import expanduser
 
-home = expanduser("~")
+home = "D:\\Repos\\Heap_monitoring"
 return_reg = "rax"
 stack_pointer = "rsp"
 arch_bits = 64
