@@ -1,14 +1,11 @@
 import pykd
-from os.path import expanduser
-
-home = "D:\\Repos\\Heap_monitoring"
+home = ".//"
 return_reg = "rax"
 stack_pointer = "rsp"
-arch_bits = 64
 log = None
 
 
-#RtlAllocateHeap(
+#RtlAllocateHeap - routine allocates a block of memory from heap(
 # IN PVOID                HeapHandle,
 # IN ULONG                Flags,
 # IN ULONG                Size );
@@ -40,7 +37,7 @@ class handle_allocate_heap(pykd.eventHandler):
         return False
 
 
-#RtlFreeHeap(
+#RtlFreeHeap - routine frees a memory block that was allocated from a heap by RtlAllocateHeap(
 #IN PVOID                HeapHandle,
 #IN ULONG                Flags OPTIONAL,
 #IN PVOID                MemoryPointer );
@@ -72,8 +69,7 @@ class handle_free_heap(pykd.eventHandler):
                 log.write(self.out + ret_val + "\n")
                 return False
 
-
-#RtlReAllocateHeap(
+#RtlReAllocateHeap - Change the size of a memory block allocated with RtlAllocateHeap.(
 #IN PVOID                HeapHandle,
 #IN ULONG                Flags,
 # IN PVOID                MemoryPointer,
